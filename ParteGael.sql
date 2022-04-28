@@ -28,7 +28,7 @@ CREATE TABLE consemergenciagrave(
 	precioEmergencia INT NOT NULL,
 	procedimiento CHAR(100) CHECK(procedimiento <> '')
 );
-CREATE TABLE consnormal()
+CREATE TABLE consnormal(
 	idConsulta INT NOT NULL UNIQUE,
 	curpCliente CHAR(18) NOT NULL,
 	nomMascota VARCHAR(50) NOT NULL CHECK(nomMascota <> ''),
@@ -37,7 +37,7 @@ CREATE TABLE consnormal()
 	precioNormal INT NOT NULL,
 	estadoSalud VARCHAR(20) CHECK(estadoSalud <> ''),
 	motivo VARCHAR(50) CHECK(motivo <> ''),
-	fecha DATE check (fecha <> '' )
+	fecha DATE NOT NULL
 );
 CREATE TABLE medicamentos(
 	idConsulta INT NOT NULL,
