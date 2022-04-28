@@ -10,7 +10,7 @@ CREATE TABLE cliente(
     calle VARCHAR(50) NOT NULL,
     numero SMALLINT NOT NULL,
     cp INT NOT NULL,
-    telefono BIGINT NOT NULL,
+    telefono BIGINT NOT NULL, /*longitud*/
     cumpleanios DATE,
     email VARCHAR(100),
     esFrecuente BOOLEAN NOT NULL
@@ -20,7 +20,7 @@ CREATE TABLE tarjeta(
     numTarjeta VARCHAR(19) NOT NULL UNIQUE,
     curpCliente CHAR(18) NOT NULL,
     vencimiento DATE NOT NULL,
-    titular VARCHAR(100),
+    titular VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE mascota(
@@ -41,7 +41,7 @@ CREATE TABLE mascota(
  * Llaves tarjeta
  */
   ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_pkey PRIMARY KEY(numTarjeta);
-  ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_fkeyCliente FOREIGN KEY(curp)
+  ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_fkeyCliente FOREIGN KEY(curpCliente)
 REFERENCES cliente(curp);
 
 /*
