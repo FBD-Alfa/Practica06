@@ -9,15 +9,15 @@ CREATE SCHEMA public; -- Creamos el esquema publico
  -- Tablas llave foranea
  CREATE TABLE producto(
 	 idProducto CHAR(10) NOT NULL UNIQUE CHECK(CHAR_LENGTH(idProducto) = 10),
-	 idEstetica BIGINT CHECK(idEstetica <> 0),
+	 idEstetica INT CHECK(idEstetica <> 0),
 	 idRecibo INT CHECK(idRecibo <> 0),
 	 nombreImagen VARCHAR(30) NOT NULL CHECK(nombreImagen <> ''),
-	 precio INT CHECK(precio <> 0),
+	 precio FLOAT CHECK(precio <> 0),
 	 nombre VARCHAR(50) NOT NULL CHECK(nombre <> ''),
 	 cantidad INT CHECK(cantidad <> 0),
 	 descripcion VARCHAR(200) NOT NULL CHECK(descripcion <> ''),
 	 tipo VARCHAR(30) NOT NULL CHECK(tipo <> ''),
-	 caducidad VARCHAR(30) NOT NULL CHECK(caducidad <> ''),
+	 caducidad DATE CHECK(caducidad > '2022-04-01'),
 	 esProductoCaducable BOOLEAN NOT NULL
  );
  
